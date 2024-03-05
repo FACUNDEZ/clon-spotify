@@ -1,5 +1,7 @@
 ---
 import AsideMenu from "../components/AsideMenu.astro";
+import { Player } from "@/components/Player";
+
 interface Props {
 	title: string;
 }
@@ -27,12 +29,14 @@ const { title } = Astro.props;
 			</aside>
 
 			<main
-				class="[grid-area:main] rounded-lg bg-zinc-900 overflow-y-auto"
+				class="[grid-area:main] rounded-lg w-full overflow-y-auto"
 			>
 				<slot />
 			</main>
 
-			<footer class="[grid-area:player] min-h-[100px]"></footer>
+			<footer class="[grid-area:player] h-[80px] bg-black z-50">
+				<Player client:load transition:name="player" transition:persist />
+			</footer>
 		</div>
 	</body>
 </html>
@@ -50,7 +54,8 @@ const { title } = Astro.props;
 <style is:global>
 	html {
 		font-family: "CircularStd", system-ui, sans-serif;
-		background: #000;
+		background: #010101;
+        color: white;
 	}
 
 	@font-face {

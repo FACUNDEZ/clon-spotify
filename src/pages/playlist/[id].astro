@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 
-import PlaylistItemCard from "@/components/PlaylistItemCard.astro";
 import { allPlaylists, songs } from "@/lib/data";
 
 const { id } = Astro.params;
@@ -18,7 +17,7 @@ const playlistSongs = songs.filter(
         class="relative flex flex-col h-full bg-zinc-900 overflow-x-hidden"
         transition:name=`playlist ${id} box`
     >
-        <header class="flex flex-row items-center gap-8 px-6">
+        <header class="flex flex-row items-center gap-8 px-6 mt-12">
             <picture class="aspect-square w-52 h-52 flex-none">
                 <img
                     src={playlist?.cover}
@@ -28,7 +27,7 @@ const playlistSongs = songs.filter(
                 />
             </picture>
 
-            <div class="flex flex-col justify-between ">
+            <div class="flex flex-col justify-between mt-12">
                 <h2 class="flex flex-1 items-end text-white">Playlist</h2>
                 <div>
                     <h1 class="text-5xl font-bold block text-white">
@@ -38,7 +37,7 @@ const playlistSongs = songs.filter(
                     </h1>
                 </div>
 
-                <div class="flex-1 flex items-end">
+                <div class="flex-1 flex items-end mt-12">
                     <div class="text-sm text-gray-300 font-normal">
                         <div transition:name=`playlist ${playlist?.id} artists`>
                             <span>{playlist?.artists.join(", ")}</span>
@@ -56,7 +55,7 @@ const playlistSongs = songs.filter(
     </div>
 
     <div
-        class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80"
+        class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80 -z-10"
     >
     </div>
 </Layout>
